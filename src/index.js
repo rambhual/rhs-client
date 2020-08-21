@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 
 const client = new ApolloClient({
   uri:
@@ -17,7 +18,11 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <BrowserRouter>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
